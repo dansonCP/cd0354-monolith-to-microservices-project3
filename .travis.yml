@@ -16,7 +16,7 @@ script:
 - docker tag udagram-api-feed dansoncp/udagram-api-feed:v4a
 - docker tag udagram-api-user dansoncp/udagram-api-user:v4a
 - docker tag udagram-frontend dansoncp/udagram-frontend:v5
-- docker tag reverseproxy dansoncp/reverseproxy:v4a
+- docker tag reverseproxy dansoncp/reverseproxy:v5
 # Do similar for other three images
 # Push
 # Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
@@ -25,5 +25,5 @@ after_success:
 - docker push dansoncp/udagram-api-feed:v4a
 - docker push dansoncp/udagram-api-user:v4a
 - docker push dansoncp/udagram-frontend:v5
-- docker push dansoncp/reverseproxy:v4a
+- docker push dansoncp/reverseproxy:v5
 # Do similar for other three images done
