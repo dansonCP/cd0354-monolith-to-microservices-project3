@@ -15,7 +15,7 @@ script:
 # Tagging
 - docker tag udagram-api-feed dansoncp/udagram-api-feed:v4a
 - docker tag udagram-api-user dansoncp/udagram-api-user:v4a
-- docker tag udagram-frontend dansoncp/udagram-frontend:v4a
+- docker tag udagram-frontend dansoncp/udagram-frontend:v5
 - docker tag udagram-reverseproxy  dansoncp/reverseproxy:v4a
 # Do similar for other three images
 # Push
@@ -24,6 +24,6 @@ after_success:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker push dansoncp/udagram-api-feed:v4a
 - docker push dansoncp/udagram-api-user:v4a
-- docker push dansoncp/udagram-frontend:v4a
+- docker push dansoncp/udagram-frontend:v5
 - docker push dansoncp/udagram-reverseproxy:v4a
 # Do similar for other three images done
