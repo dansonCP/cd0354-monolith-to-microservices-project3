@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-feed
+  labels:
+    app: api-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-feed
+  template:
+    metadata:
+      labels:
+        app: api-feed
+    spec:
+      containers:
+      - name: udagram-api-feed
+        image: 'dansoncp/udagram-api-feed:v6'
+        envFrom:
+          - secretRef:
+              name: env-secret
+          - secretRef:
+              name: aws-secret
+          - configMapRef:
+              name: env-configmap
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1000Mi"
+            cpu: "100m"
+          limits:
+            memory: "2000Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 8080
