@@ -13,17 +13,17 @@ script:
 - docker build -t reverseproxy ./udagram-reverseproxy
 # Do similar for other three images
 # Tagging
-- docker tag udagram-api-feed dansoncp/udagram-api-feed:v4a
-- docker tag udagram-api-user dansoncp/udagram-api-user:v4a
-- docker tag udagram-frontend dansoncp/udagram-frontend:v5
-- docker tag reverseproxy dansoncp/reverseproxy:v5
+- docker tag udagram-api-feed dansoncp/udagram-api-feed:v6
+- docker tag udagram-api-user dansoncp/udagram-api-user:v6
+- docker tag udagram-frontend dansoncp/udagram-frontend:v6
+- docker tag reverseproxy dansoncp/reverseproxy:v6
 # Do similar for other three images
 # Push
 # Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
 after_success:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push dansoncp/udagram-api-feed:v4a
-- docker push dansoncp/udagram-api-user:v4a
-- docker push dansoncp/udagram-frontend:v5
-- docker push dansoncp/reverseproxy:v5
+- docker push dansoncp/udagram-api-feed:v6
+- docker push dansoncp/udagram-api-user:v6
+- docker push dansoncp/udagram-frontend:v6
+- docker push dansoncp/reverseproxy:v6
 # Do similar for other three images done
